@@ -12,11 +12,13 @@ public class Question13 {
         String str="Hello World";
 
 
-        LinkedHashMap<String, Long> collect = Arrays.stream(str
+        LinkedHashMap<String, Long> charMap = Arrays.stream(str
                         .split(""))
                 .collect(Collectors
                         .groupingBy(x -> x, LinkedHashMap::new, Collectors.counting()));
-        collect.entrySet().stream().filter(x->x.getValue()>1)
-               .map(m-> m.getKey()).findFirst().get();
+        System.out.println(charMap);
+        String s = charMap.entrySet().stream().filter(x -> x.getValue() > 1)
+                .map(m -> m.getKey()).findFirst().get();
+        System.out.println(s);
     }
 }
